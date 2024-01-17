@@ -10,7 +10,7 @@ public class Todo0116 {
 		System.out.println("값을 입력>>>");
 		String input = scn.nextLine(); 
 		// == input.equals("quit")
-		
+		if (input.equals("quit"));
 		//입력값은 홍길동입니다.
 		
 		// "quit" 값이 들어오면 <<end of prog>>
