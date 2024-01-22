@@ -1,4 +1,4 @@
-package classes;
+package com.yedam.classes;
 
 import java.util.Scanner;
 

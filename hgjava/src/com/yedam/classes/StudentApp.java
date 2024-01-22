@@ -1,4 +1,4 @@
-package classes;
+package com.yedam.classes;
 
 // 학생의 정보를 관리하는 기능 구현.
 public class StudentApp {

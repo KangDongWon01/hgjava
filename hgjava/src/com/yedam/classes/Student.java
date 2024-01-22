@@ -1,4 +1,4 @@
-package classes;
+package com.yedam.classes;
 //라이브러리용 클래스
 // 학생들의 속성 : 학생번호, 이름, 점수, 키
 // 학생들의 기능(행동): 자기소개
@@ -9,6 +9,8 @@ public class Student { //이 필드 부분은 기능보단 구조를 설명하�
 	private String sname;
 	private int score;
 	private double height;
+	private boolean onSchool;
+	
 	//하나의 클래스이자 객체이기도 한데, 하나의 데이터 타입으로 볼 수 있다.
 	
 	//==================================================================================
@@ -42,10 +44,10 @@ public class Student { //이 필드 부분은 기능보단 구조를 설명하�
 	}
 	//==================================================================================
 	//메서드 : 이름, 매개, 반환값(반환값이 없을 경우 void를 입력하여 주며, return값이 없다.)
-	void showInfo() {
+	public void showInfo() {
 		System.out.printf("번호는 %s, 이름은 %s, 점수는 %d 점 입니다.\n", this.sno, this.sname, this.score);
 	}
-	
+		
 	//반환값이 문자다 -> String
 	String showInfoStr() {
 		return "";
@@ -87,6 +89,12 @@ public class Student { //이 필드 부분은 기능보단 구조를 설명하�
 	}
 	public void setScore(int score) {
 		this.score = score;
+	}
+	public boolean isOnSchool() { //필드가 불린 값일때 getter setter 생성하면 getter에 is가 붙는게 관례
+		return onSchool;
+	}
+	public void setOnSchool(boolean onSchool) {
+		this.onSchool = onSchool;
 	}
 	
 }

@@ -1,4 +1,4 @@
-package classes;
+package com.yedam.classes;
 //======================이하 필드 영역======================================
 //친구 : 이름, 연락처, 나이 : 관리. 
 public class Friend {

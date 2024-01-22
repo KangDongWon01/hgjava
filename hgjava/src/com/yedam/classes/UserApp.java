@@ -1,4 +1,4 @@
-package classes;
+package com.yedam.classes;
 class User {
 	private String id;
 	private String pw;

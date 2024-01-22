@@ -1,4 +1,4 @@
-package classes;
+package com.yedam.classes;
 //동일한 패키지에 있으면, import 같은 케이스를 거치지 않아도 서로 연결
 //실행용 클래스
 public class StudentExe {

@@ -1,4 +1,4 @@
-package classes;
+package com.yedam.classes;
 //======================이하 필드 영역======================================
 // CRUD기능
 public class FriendApp {
