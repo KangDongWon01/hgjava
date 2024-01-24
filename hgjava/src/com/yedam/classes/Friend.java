@@ -17,11 +17,6 @@ public class Friend {
 		
 	}
 	
-	public Friend(String fname, String ftel, int fage) {
-		this.fname = fname;
-		this.ftel = ftel;
-		this.fage = fage;
-	}
 //======================이하 메서드 영역===================================
 	void showInfo() { //친구 목록 불러올때 쓸 메서드
 		System.out.printf("이름은 %s, 연락처는 %s, 나이는 %d 입니다.\n",
