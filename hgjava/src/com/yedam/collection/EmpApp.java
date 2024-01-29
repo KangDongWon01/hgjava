@@ -57,6 +57,7 @@ public class EmpApp {
 		}
 		
 		System.out.println("end of program");
+		scn.close();
 	}
 	
 	static void method() { //참고용
