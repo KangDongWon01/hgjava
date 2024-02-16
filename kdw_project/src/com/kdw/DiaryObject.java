@@ -11,6 +11,26 @@ public class DiaryObject {
 	private Date updateDate;
 	
 	
+	public DiaryObject() {
+	}
+	
+	public DiaryObject(String title, String cont) {
+		super();
+		this.title = title;
+		this.cont = cont;
+		
+		
+	}
+	public DiaryObject(int diary_id, String title, String cont, Date regDate, Date updateDate) {
+		super();
+		this.diary_id = diary_id;
+		this.title = title;
+		this.cont = cont;
+		this.regDate = regDate;
+		this.updateDate = updateDate;
+	}
+	
+	//getter / setter
 	public int getDiary_id() {
 		return diary_id;
 	}
@@ -30,6 +50,7 @@ public class DiaryObject {
 		this.cont = cont;
 	}
 	public Date getRegDate() {
+		
 		return regDate;
 	}
 	public void setRegDate(Date regDate) {

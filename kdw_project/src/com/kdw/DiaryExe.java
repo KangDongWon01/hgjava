@@ -2,6 +2,7 @@ package com.kdw;
 
 import java.sql.Connection;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class DiaryExe {
@@ -77,17 +78,25 @@ public class DiaryExe {
 				System.out.println("||    ♩일기를 작성합니다.    ||");
 				System.out.println("||   날짜는 자동저장됩니다.   ||");
 				System.out.println("=========================");
+				//이 기능을 통해 생성하는 DiaryObject 객체에게, 속성을 부여하기.
+				// 제목 부여.
 				System.out.println("제목 작성 >> ");
 				String title = scn.nextLine();
 				scn.nextLine();
-				
+				// 내용 부여.
 				System.out.println("내용 작성 >> ");
 				String cont = scn.nextLine();
 				scn.nextLine();
+				// 작성일자 부여.
+				Date regDate = new Date();
+				// 수정일자는 이 시점에 쓸 내용이 아니므로 null처리.
+				Date updateDate = null;
+				
+				DiaryObject doj = new DiaryObject(title, cont);
 				
 				DiaryMethods dm2 = new DiaryMethods();
 				
-				if(dm2.insertDiary()) {
+				if(dm2.insertDiary(title, cont)) {
 					
 				}
 				break;

@@ -61,19 +61,21 @@ public class DiaryMethods {
 	//CRUD 메소드
 	
 	//일기 작성 메소드
-	public boolean insertDiary(int diary_id, String title, String cont, String regDate, String updateDate ) throws SQLException {
+//	public boolean insertDiary(int diary_id, String title, String cont, String regDate, String updateDate ) throws SQLException {
 		//쿼리문작성.
+	public boolean insertDiary(DiaryObject doj) throws SQLException {
+
 		conn = DiaryDAO.getConn(); //Connection 객체 생성.
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		sql = "insert into diary (DIARY_ID, TITLE, CONT, REGDATE, UPDATEDATE) VALUE(SEQ_DIARY_ID.NEXTVAL,?,?,SYSDATE,? )";
 		
 		try {
-			DiaryObject doj = new DiaryObject(); 
-			psmt = conn.prepareStatement(sql, new String[] {"diary_id"}); //데이터베이스 아직 시퀀스 안줬다. 참고하자
-			psmt.setString(1, doj.getTitle());
-			psmt.setString(2, doj.getCont());
-			psmt.setString(3, sdf.format(doj.getUpdateDate()));
+			DiaryObject doj1 = new DiaryObject(); 
+			psmt = conn.prepareStatement(sql, new String[] {"diary_id"});//시퀀스 쓰지 말고 rownum으로 해 보자.
+			psmt.setString(1, doj1.getTitle());
+			psmt.setString(2, doj1.getCont());
+			psmt.setString(3, sdf.format(doj1.getUpdateDate()));
 			
 			int r = psmt.executeUpdate(); //데이터 반영.
 			if(r > 0) {
