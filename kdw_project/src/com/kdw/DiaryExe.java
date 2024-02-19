@@ -1,12 +1,13 @@
 package com.kdw;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 public class DiaryExe {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		//스위치문으로 실행하는 메인 클래스.
 		//필드
 		SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
@@ -96,8 +97,10 @@ public class DiaryExe {
 				
 				DiaryMethods dm2 = new DiaryMethods();
 				
-				if(dm2.insertDiary(title, cont)) {
-					
+				if(dm2.insertDiary(doj)) {
+					System.out.println("일기가 저장 되었어요.");
+				} else {
+					System.out.println("오류 발생. 일기가 저장되지 못했어요.");
 				}
 				break;
 			
