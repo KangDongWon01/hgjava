@@ -1,5 +1,12 @@
 //input.js
-//template는 DOM에 등록되지 않는 유일한 태그, HTML 
+// template는 DOM에 등록되지 않는 유일한 태그, HTML 
+// template >> 감싸는 부분 필요, 시각적으로 보이지 않음
+// div태그 >> 시각적으로 보여줌
+// myName 자리에 사용자가 입력 >> myName값을 p태그에 입력
+// 프로퍼티 자체의 값을 바꿔서 인풋 태그와 바인딩되는 곳을 모두 적용
+// select-option >> multiple 옵션하면 데이터 리턴값을 배열로 받기
+// checkbox 여러개 >> 리턴값 배열로 받기, value 필요
+// radio >> value 필요
 let template = `
 <div>
     <!--모델 바인드 -->
