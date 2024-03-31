@@ -1,4 +1,5 @@
-/*서버 측에서 결정한다 라우팅(Routing)
+/*
+라우터/라우팅(Routing)
 특정 엔드 포인트에 대한 클라이언트 요청에
 애플리케이션이 응답하는 방법을 결정하는 것
 엔드 포인트 = 메소드(Method) + 경로(Path) + 데이터(data, 컨텐츠타입) >> 통신 요청 / post방식으로만 가능하
@@ -31,13 +32,13 @@ REST .. Restful Server (http와 같은 새로운 하나의 아키텍쳐) 데이�
 // 전체조회
 fetch('https://jsonplaceholder.typicode.com/posts')
 .then(response => {
-    console.log(response);
-    return response.json();
+    console.log(response); // 통신 결과 정보
+    return response.json(); // 받은 결과 제이슨으로 파싱 >> 리턴
 })
-.then(data => {
-    console.log(data);
+.then(data => { // 그러고 나서
+    console.log(data); // 파싱 결과를 출력
 })
-.catch(err => console.log(err)); // 에러 처리는 반드시 필요함
+.catch(err => console.log(err)); // 에러 처리는 필수
 
 // 같은 내용을 제이쿼리 방식
 // $.ajax('https://jsonplaceholder.typicode.com/posts')
@@ -47,27 +48,27 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 // .catch(err => console.log(err));
 
 // 단건조회
-fetch('https://jsonplaceholder.typicode.com/posts/'+1)
-.then(res => res.json())
+fetch('https://jsonplaceholder.typicode.com/posts/'+1) // rest방식 > 경로에 method 추가
+.then(res => res.json()) //위 전체조회 then을 화살표 함수로 축약
 .then(data => {
     console.log(data);
 })
-.catch(err => console.log(err)); // 에러 처리는 반드시 필요함
+.catch(err => console.log(err));
 
-// 등록 Json : {객체}, [배열] , (객체 아니면 배열이다.)
+// 한건 등록 post방식, Json은 {객체}혹은 [배열] 타입
 let post = {
-    id : 100,
+    id : 100, //id 자동 부여 > 추가되어 출력됨
     title : 'Hello!',
     userId : 10,
     body : 'Today is Friday!!!'
 }
 
 fetch('https://jsonplaceholder.typicode.com/posts',{
-    method : 'post',
+    method : 'post', // post방식으로 정의, post방식은 body내용 필요
     headers : {
-        'Content-type' : 'application/json'
+        'Content-type' : 'application/json' // body에 들어가는 데이터 타입 정의
     },
-    body : JSON.stringify(post) //json 은 기본적으로 post방식으로 보낸다. get 방식으로는 거의 안 쓴다.
+    body : JSON.stringify(post) // body > json 변환, json은 기본적으로 post방식으로 보냄
 })
 .then(res => res.json())
 .then(data => {
@@ -76,12 +77,12 @@ fetch('https://jsonplaceholder.typicode.com/posts',{
 .catch(err => console.log(err));
 
 //수정 -> 누구를 수정할 것인가? 
-fetch('https://jsonplaceholder.typicode.com/posts/'+1, {
-    method : 'put',
+fetch('https://jsonplaceholder.typicode.com/posts/'+1, { //특정 대상 지정해서 요청
+    method : 'put', // put방식으로 정의, put방식은 rest에서 수정하는 방법
     headers : {
         'Content-type' : 'application/json'
     },
-    body : JSON.stringify({ //데이터의 수정할 부분만 집어 보내는 것은 안전하지 않을 확률 높다. 통째로 넘어가는게 대체로 안전하다고 판단된다.
+    body : JSON.stringify({ //데이터의 수정할 부분만 집어 보내는 것은 안전하지 않음, 모두 넘어가는게 안전
         title : 'edit',
         userId : 20,
         body : 'Test'
@@ -95,7 +96,7 @@ fetch('https://jsonplaceholder.typicode.com/posts/'+1, {
 
 //삭제
 fetch('https://jsonplaceholder.typicode.com/posts/'+1, {
-    method : 'delete',
+    method : 'delete', //delete방식 정의, delete방식은 rest에서 삭제하는 방법, 메소드만 정의
 })
 .then(response => {
     console.log(response);
