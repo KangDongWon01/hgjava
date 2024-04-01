@@ -1,22 +1,24 @@
 import router from './router/router.js'
 
+import HeaderComponent from './layouts/header.js'
+import FooterComponent from './layouts/footer.js'
+
+
 const { createApp } = Vue
 
 let template = `
 <div>
-    <router-link to="/home">HOME</router-link>
-    <router-link v-bind:to="{name : 'home'}">Home</router-link>
-    <br>
-    <router-link v-bind:to="{path : '/postList'}">전체조회</router-link>
-    <br>
-    <router-link v-bind:to="{path : '/postInfo'}">단건조회</router-link>
-
+    <HeaderComponent/>
     <router-view :key="$route.fullPath" />
+    <FooterComponent/>
 </div>
 `;
 createApp({
     template,
-
+    components : {
+        HeaderComponent,
+        FooterComponent
+    }
 })
 .use(router) //라우터를 전역으로 쓰게 하는 메소드.
 .mount('#app');

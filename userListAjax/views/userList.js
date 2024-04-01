@@ -36,12 +36,12 @@ export default {
     },
     methods : {
         async getUserList() {
-            await fetch('https://jsonplaceholder.typicode.com/users')
+            this.userList = await fetch('https://jsonplaceholder.typicode.com/users')
                     .then(res => res.json())
                     .catch(err => console.log(err));
         },
-        goToDetail(id){
-            this.$router.push({ name : 'userInfo', query : { id : id }});
+        goToDetail(userId){
+            this.$router.push({ name : 'userInfo', query : { id : userId }});
         }
     }
     
